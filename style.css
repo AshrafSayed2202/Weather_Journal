@@ -1,0 +1,321 @@
+body{
+    background: #fffff8;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+}
+#app{
+    display: grid;
+    grid-auto-rows: minmax(150px, auto);
+    /* grid-template-columns: ; */
+    height:100vh;
+    background: linear-gradient(#00ffff,#ffffff);
+    color: #f0d43a;
+    justify-content: center;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+}
+.holder{    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+.entry{
+    background: rgba(59, 74, 107, .4);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+    width: 100%;
+    border-radius: 20px;
+    height: max-content;
+    box-sizing: border-box;
+    align-items: flex-start;
+    position: relative;
+}
+#entryHolder{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+    padding: 0px 15px 15px;
+}
+#entryHolder>div{
+    color: #3b4a6b;
+    font-weight: bolder;
+    display: none;
+}
+.headline {
+    font-size: 3em;
+    font-weight: bold;
+    justify-content: center;
+    text-align: center;
+    -webkit-text-stroke: #eee 1px;
+}
+.title{
+    padding-top: 10px;
+    margin: auto;
+}
+/*  Basic Styling To Override Default For Basic HTML Elements */
+label{
+    display:block;
+    font-size: 40px;
+}
+#icon{
+    position: absolute;
+    right: 0px;
+    top: 45%;
+}
+
+input{
+    display:block;
+    height: 60px;
+    width: 100%;
+    background:#22b2da;
+    color: #f0d43a;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+    padding: 0;
+}
+.buttons{
+    width: 100%;
+}
+#generate{
+    width: 80%;
+    height: 100px;
+    background: #3b4a6b;
+    color: #f0d43a;
+    font-size: 26px;
+    font-family: 'Oswald', sans-serif;
+    border: none;
+    box-shadow: 2px 4px 5px #444;
+    transition: 0.3s;
+    cursor: pointer;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+#generate::after{
+    content: "";
+}
+#reset{
+    width: 20%;
+    height: 100px;
+    background: #e91e63;
+    color: #f0d43a;
+    font-size: 26px;
+    font-family: 'Oswald', sans-serif;
+    border: none;
+    box-shadow: 0px 4px 5px #444;
+    transition: 0.3s;
+    cursor: pointer;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+#generate:hover{
+    background:#273247;
+}
+#reset:hover{
+    background: #a31645;
+}
+h1{
+    font-size: 36px;
+}
+textarea{
+    background:#22b2da;
+    color: #f0d43a;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    width: 100%;
+    height: 150px;
+    border: none;
+    border-radius: 20px;
+    padding: 20px;
+    resize: none;
+    box-sizing: border-box;
+}
+@media (max-width:400px) {
+    .headline{
+        font-size: 2em;
+    }
+    textarea{
+        height: 80px;
+    }
+}
+textarea::-webkit-scrollbar-track{
+	background-color: #22b2da;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+textarea::-webkit-scrollbar{
+	width: 15px;
+	background-color: transparent;
+}
+textarea::-webkit-scrollbar-thumb{
+	border-radius: 100px;
+	background-color: #4dffff;
+}
+/* Reset style for HTML element on active to have no border*/
+input:focus,
+select:focus,
+textarea:focus{
+    outline: none;
+}
+/* Style for Placeholder Text*/
+::placeholder { /* Firefox, Chrome, Opera */ 
+    color: #f0d43a; 
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+} 
+:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
+    color: #f0d43a; 
+    font-family: 'Oswald', sans-serif;
+} 
+::-ms-input-placeholder { /* Microsoft Edge */ 
+    color: #f0d43a; 
+    font-family: 'Oswald', sans-serif;
+} 
+/* Symbol creation and animation */
+@media (max-width:1250px) {
+    .symbol{
+        display: none;
+    }
+}
+.symbol{
+    width: 300px;
+    height: 300px;
+    position:absolute;
+    top:100px;
+    left:100px;
+}
+.symbol .sun{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    animation: rotate 25s infinite linear;
+    z-index: 4;
+    left: 37%;
+    top: 4%;
+}
+.symbol .sun .circle{
+    background-color: #fdd020;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.symbol .sun .b,
+.symbol .sun .s{
+    background-color: #fdd020;
+    position: absolute;
+    height: 10px;
+    border-radius: 5px;
+    z-index: 4;
+    transition: 0.1s;
+}
+.symbol .sun .b{
+    width: 40px;
+    animation: forBig 2s infinite linear alternate;
+}
+.symbol .sun .s{
+    width: 30px;
+    animation: forSmall 2s infinite linear alternate;
+}
+.symbol .sun .b:nth-child(2){
+    top: -7%;
+    left: -22%;
+    transform:translate(22%,7%) rotate(45deg);
+}
+.symbol .sun .b:nth-child(3){
+    top: -7%;
+    right: -22%;
+    transform:translate(-22%,7%) rotate(135deg);
+}
+.symbol .sun .b:nth-child(4){
+    top: 107%;
+    right: -22%;
+    transform:translate(-22%,-107%) rotate(225deg);
+}
+.symbol .sun .b:nth-child(5){
+    top: 107%;
+    left: -22%;
+    transform:translate(22%,-107%) rotate(315deg)
+}
+.symbol .sun .s:nth-child(6){
+    top: -25%;
+    left: 50%;
+    transform: translate(-50%,25%) rotate(90deg)
+}
+.symbol .sun .s:nth-child(7){
+    bottom: -25%;
+    left: 50%;
+    transform: translate(-50%,-25%) rotate(90deg)
+}
+.symbol .sun .s:nth-child(8){
+    left: -25%;
+    top: 50%;
+    transform: translate(-25%,-50%);
+}
+.symbol .sun .s:nth-child(9){
+    right: -25%;
+    top: 50%;
+    transform: translate(25%,-50%);
+}
+@keyframes rotate {
+    from{
+        transform: rotate(0deg);
+    }to{
+        transform: rotate(360deg);
+    }
+}
+@keyframes forBig {
+    from{
+        width:40px
+    }to{
+        width:30px
+    }
+}
+@keyframes forSmall {
+    from{
+        width:30px
+    }to{
+        width:40px
+    }
+}
+@keyframes upDown {
+    from{
+        transform: translateY(0px);
+    }to{
+        transform: translateY(10px);
+    }
+}
+.cloud{
+    z-index: 5;
+    position: relative;
+    animation: upDown 2s linear infinite alternate;
+}
+.cloud .big{
+    background-color: #eee;
+    width: 300px;
+    height: 110px;
+    border-radius: 55px;
+}
+.cloud .b-circle{
+    background-color: #eee;
+    position: absolute;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    top: -73px;
+    left: 50px;
+}
+.cloud .s-circle{
+    background-color: #eee;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    top: -39px;
+    left: 135px;
+}
