@@ -36,6 +36,11 @@ const getWeatherData = async function(url,zipCode,key){
         console.log("error",error)
     }
 };
+zipCode.onkeyup = function(e){
+    if(e.key == 'Enter'){
+        performAction();
+    }
+}
 generateBtn.addEventListener('click',performAction);
 function performAction(){
     if(document.querySelector('.entry').style.left == '50%'){

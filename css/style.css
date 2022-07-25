@@ -13,12 +13,34 @@ body{
 .zip{
     display: flex;
     flex-direction: row;
-    width: 30%;
     padding: 20px;
     margin: auto;
     position: relative;
 }
-.zip i{
+.holder{
+    width: 40%;
+}
+@media (max-width:768px) {
+    .holder{
+        width: 80%;
+    }
+}
+@media (min-width:768px) {
+    .holder{
+        width: 60%;
+    }
+}
+@media (min-width:991px) {
+    .container{
+        width: 50%;
+    }
+}
+@media (min-width:1200px) {
+    .holder{
+        width: 40%;
+    }
+}
+.zip>i{
     position: absolute;
     top: 50%;
     left: 8%;
@@ -30,7 +52,6 @@ body{
 .entry{
     background: #ffffffda;
     margin-top: 15%;
-    width: 30%;
     height: max-content;
     box-sizing: border-box;
     align-items: flex-start;
@@ -92,6 +113,7 @@ input{
 }
 .buttons{
     width: 20%;
+    position: relative;
 }
 #generate{
     width: 100%;
@@ -106,6 +128,21 @@ input{
     cursor: pointer;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
+}
+#generate>i{
+    display: none;
+}
+@media (max-width:450px) {
+    .zip>i{
+        display: none;
+    }
+    #generate>i{
+        display: inline-block;
+        left: 35%;
+    }
+    #generate>span{
+        display: none;
+    }
 }
 #generate:hover{
     background:#273247;
