@@ -44,6 +44,9 @@ body{
     transition: 0.5s;
     border-top-left-radius: 40px;
     border-bottom-right-radius: 40px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }
 @keyframes entryChange1 {
     0%{
