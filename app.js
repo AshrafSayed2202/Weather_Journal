@@ -23,7 +23,6 @@ const getWeatherData = async function(url,zipCode,key){
     try {
         let data = await res.json();
         weatherData = data;
-        console.log(weatherData)
         allData = {
             city:weatherData.name,
             temp:weatherData.main.temp,
@@ -39,10 +38,17 @@ const getWeatherData = async function(url,zipCode,key){
 };
 generateBtn.addEventListener('click',performAction);
 function performAction(){
+    if(document.querySelector('.entry').style.left == '50%'){
+        if(document.querySelector('.entry').style.animation == '1s ease 0s 1 normal none running entryChange1'){
+            document.querySelector('.entry').style.animation = '1s ease 0s 1 normal none running entryChange2'
+        }else{
+            document.querySelector('.entry').style.animation = '1s ease 0s 1 normal none running entryChange1';
+        }
+    }
     getWeatherData(apiUrl,zipCode.value,apiKey).then(()=>{
         updateUI();
     }).then(()=>{
-        document.querySelector('.entry').style.left = '50%'
+        document.querySelector('.entry').style.left = '50%';
     })
     
 };
