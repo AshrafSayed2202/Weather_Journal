@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Weather Journal</title>
 <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="icon" href="cloud.png">
+<link rel="stylesheet" href="css\style.css">
+<link rel="icon" href="images\cloud.png">
+<!-- font awesome -->
+<link rel="stylesheet" href="css\all.min.css">
 </head>
 <body>
     <div class="symbol">
@@ -28,28 +30,26 @@
         </div>
     </div>
     <div id = "app">
-        <div class ="holder headline">
-        Weather Journal
-        </div>
         <div class ="holder zip">
-            <label for="zip">Enter Zipcode here</label>
-            <input type="text" id="zip" placeholder="Enter zip code here">
-        </div>
-        <div class ="holder feel">
-            <label for="feelings">How are you feeling today?</label>
-            <textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="type" id="zip" placeholder="Enter City">
             <div class="buttons">
-                <button id="generate" type = "submit"> Generate </button><button id="reset" type = "reset"> Reset </button>
+                <button id="generate" type = "submit">Search</button>
+                <!-- <button id="reset" type = "reset"> Reset </button> -->
             </div>
         </div>
         <div class ="holder entry">
-            <div class = "title">Most Recent Entry</div>
-            <div id = "entryHolder">
-                <div class="one">City: <span id = "city"></span></div>
-                <div class="two">Date: <span id = "date"></span></div>
-                <div class="three">Temp: <span id = "temp"></span></div>
-                <div class="four">Description: <span id = "description"></span><img src="" alt="weater icon" id="icon"></div>
-                <div class="five">User entry: <span id = "content"></span></div>
+            <div class="top">
+                <div id = "city"></div>
+                <div id = "date"></div>
+            </div>
+            <div class="mid">
+                <div id = "temp"></div>
+                <div id = "description"></div>
+            </div>
+            <div class="bot">
+                <div><i class="fa-solid fa-droplet"></i><span id="humidity"></span></div>
+                <img src="" alt="weather icon" id="icon">
             </div>
         </div>
     </div>
